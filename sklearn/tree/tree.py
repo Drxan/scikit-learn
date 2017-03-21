@@ -305,6 +305,7 @@ class BaseDecisionTree(six.with_metaclass(ABCMeta, BaseEstimator)):
 
         # Build tree
         criterion = self.criterion
+        #if the value of criterion is string,then create a new Criterion Object respectively
         if not isinstance(criterion, Criterion):
             if is_classification:
                 criterion = CRITERIA_CLF[self.criterion](self.n_outputs_,
