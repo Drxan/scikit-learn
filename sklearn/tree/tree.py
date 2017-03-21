@@ -245,6 +245,7 @@ class BaseDecisionTree(six.with_metaclass(ABCMeta, BaseEstimator)):
                               "0 or larger than 1").format(max_leaf_nodes))
 
         if sample_weight is not None:
+           #convert the sample_weight to Double stored by the C style
             if (getattr(sample_weight, "dtype", None) != DOUBLE or
                     not sample_weight.flags.contiguous):
                 sample_weight = np.ascontiguousarray(
